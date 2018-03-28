@@ -14,6 +14,20 @@
 
 // CODE HERE...
 
+function callBinding(magicAnimals, updateAnimal, id) {
+    let index = magicAnimals.map((item, i) => {
+        if (item.id == id) {
+            return i
+        }
+    })
+
+
+    let animal = magicAnimals[index[1]]
+
+
+    return updateAnimal.call(animal, 'Trogdor')
+}
+
 
 
 // *************
@@ -28,6 +42,27 @@
 // return the result of your updateAnimal invocation
 
 // CODE HERE...
+
+function applyBinding(magicAnimals, updateAnimal, id) {
+
+    let index = magicAnimals.filter((item) => {
+        return typeof item === "object"
+    }).map((item, i) => {
+        if (item.id === id) {
+            return i
+        }
+    })
+
+    index = index[0]
+
+    let animal = magicAnimals[index]
+
+
+
+
+
+    return updateAnimal.apply(animal, ['being majestic', 'eating rainbows'])
+}
 
 
 
@@ -48,6 +83,20 @@
 var foo;
 
 // CODE HERE...
+
+function promiseMe($q) {
+
+    let promise = new Promise(function (resolve, reject) {
+        setTimeout(() => foo = "bar", 20, resolve().then(() => {
+            return foo
+        })
+        )
+
+    })
+
+    return promise
+
+}
 
 
 
